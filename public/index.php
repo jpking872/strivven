@@ -29,5 +29,11 @@ $middleware($app);
 $routes = require __DIR__ . '/../src/routes.php';
 $routes($app);
 
+$app->add(new \Slim\Middleware\Session([
+  'name' => 'assessment session',
+  'autorefresh' => true,
+  'lifetime' => '1 hour'
+]));
+
 // Run app
 $app->run();

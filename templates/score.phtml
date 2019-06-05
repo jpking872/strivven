@@ -27,20 +27,31 @@
                 font-weight: 200;
                 margin-bottom: 0;
             }
+            ul {
+                list-style-type: none;
+            }
+            .answers {
+                width:150px;
+                margin:0 auto;
+
+            }
+            .answers p {
+                text-align: left;
+            }
         </style>
         <script type="text/javascript">
             $(document).ready(function () {
 
-            	$("#loginForm").submit(function (event) {
-            		if (event.target[0].value.length < 3 || event.target[1].value.length < 5) {
-            			$("#message").html("Invalid login");
-            			return false;
-            		} else {
-            			$("#message").html("");
-            			return true;
-            		} 
-            		
-            	})
+                $("#questionForm").submit(function (event) {
+                    if (!event.target.answer.value) {
+                        $("#message").html("Must select an answer");
+                        return false;
+                    } else {
+                        $("#message").html("");
+                        return true;
+                    } 
+                    
+                })
 
             })
         </script>
@@ -48,27 +59,12 @@
     </head>
     <body>
         <h1>Career Interest Assessment</h1>
-
-        <?php if ($name != "invalid" && $name != "") { ?>
-
-            <h2>Hello <?= $name ?>!</h2>
-
-            <p><a href="/answer?number=0&answer=0">Take Assessment</a> | <a href='/logout'>Logout</a></p>
-
-        <?php } else { ?>
-
-            <?php if ($name == "invalid") echo "<p>Invalid login. Please try again.</p>"; ?>
-
-            <p id="message"></p>
-            <form method="post" id="loginForm" action="/login">
-
-                <p>Username: <input type="text" name="username" maxlength="45"></p>
-                <p>Password: <input type="password" name="password" maxlength="15"></p>
-                <p><input type="submit" value="login"></p>
-
-            </form>
-
-        <?php } ?>
-
+            <ul>
+            <?php for ($i = 0; $i < count($score); $i++) {
+                echo "<li>" . $score[$i]['name'] . ": " . $score[$i]['score'] . "</li>";
+            } 
+            ?>
+            </ul>
+            <p><a href="/logout">Logout</a></p>
     </body>
 </html>

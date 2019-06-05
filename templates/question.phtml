@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Slim 3</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 40px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+            .answers {
+                width:150px;
+                margin:0 auto;
+
+            }
+            .answers p {
+                text-align: left;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#questionForm").submit(function (event) {
+                    if (!event.target.answer.value) {
+                        $("#message").html("Must select an answer");
+                        return false;
+                    } else {
+                        $("#message").html("");
+                        return true;
+                    } 
+                    
+                })
+
+            })
+        </script>
+
+    </head>
+    <body>
+        <h1>Career Interest Assessment</h1>
+
+            <p><?php echo "Hello " . $name ?></p>
+
+            <p id="message"></p>
+            <form method="get" id="questionForm" action="/answer">
+                <input type="hidden" name="number" value="<?= $id ?>">
+                <p>Question <?= $id ?> of <?= $total ?>:<br/>How do you like:<br/><?= $question ?>?</p>
+                <div class="answers">
+                <p><input type="radio" name="answer" value="5">Strongly like<br/>
+                    <input type="radio" name="answer" value="4">Like<br/>
+                    <input type="radio" name="answer" value="3">Indifferent<br/>
+                    <input type="radio" name="answer" value="2">Dislike<br/>
+                    <input type="radio" name="answer" value="1">Strongly dislike<br/>
+                </p>
+                 </div>
+
+                <p><input type="submit" value="Answer"></p><p><a href="/logout">Logout</a></p><p><a href="/score">See Scores Now</a></p>
+            </form>
+            <?= var_dump($results) ?>
+    </body>
+</html>

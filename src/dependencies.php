@@ -36,4 +36,8 @@ return function (App $app) {
         return $capsule;
     };
 
+    $container['session'] = function ($c) {
+        return new \SlimSession\Helper;
+    };
+
 };
