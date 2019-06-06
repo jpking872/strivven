@@ -9,3 +9,4 @@ password: tester
 
 The Part I answers are in the file questions.sql in the root directory.
 
+The database for Part II is the file strivven-part2.sql in the root directory.
