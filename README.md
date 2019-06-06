@@ -6,3 +6,6 @@ The user login is:
 
 username: tester@yahoo.com
 password: tester
+
+The Part I answers are in the file questions.sql in the root directory.
+
