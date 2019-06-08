@@ -8,5 +8,6 @@ username: tester@yahoo.com
 password: tester
 
 The Part I answers are in the file questions.sql in the root directory.
+The Part I schema is in the file strivven-part1.sql in the root directory.
 
 The database for Part II is the file strivven-part2.sql in the root directory.
