@@ -7,7 +7,6 @@ The user login is:
 username: tester@yahoo.com
 password: tester
 
-The Part I answers are in the file questions.sql in the root directory.
-The Part I schema is in the file strivven-part1.sql in the root directory.
-
-The database for Part II is the file strivven-part2.sql in the root directory.
+The Part I answers are in the file questions.txt in the /docs directory.
+The Part I database is in the file strivven-part1.sql in the /docs directory.
+The Part II database is the file strivven-part2.sql in the /docs directory.
